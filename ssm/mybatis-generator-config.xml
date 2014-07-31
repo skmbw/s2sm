@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<!-- 插件地址 http://mybatis.googlecode.com/svn/sub-projects/generator/trunk/eclipse/UpdateSite/ -->
+<generatorConfiguration>
+	<!-- jdbc驱动的jar文件位置，要修改成自己本地的驱动文件所在的位置，绝对路径 -->
+	<classPathEntry location="E:\ojdbc\ojdbc-6.jar" />
+	<context id="context1">
+		<property name="javaFileEncoding" value="UTF-8"/>
+		<!-- jdbc连接配置 -->
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@172.20.0.151:1521:orcljl" userId="ths_gov" password="ths_gov" />
+		
+		<!-- 实体文件的位置 -->
+		<javaModelGenerator targetPackage="cn.com.dce.user.model" targetProject="ssm" /><!-- targetProject之处代码产生在哪个项目中 -->
+		
+		<!-- Mapper.xml文件的位置，sql映射文件的位置 -->
+		<sqlMapGenerator targetPackage="cn.com.dce.user.mapper" targetProject="ssm" />
+		
+		<!-- Mapper.java文件的位置，也就是DAO接口文件位置 -->
+		<javaClientGenerator targetPackage="cn.com.dce.user.dao" targetProject="ssm" type="XMLMAPPER" />
+		
+		<!-- 要映射的表，schema可以不指定 -->
+		<table schema="" tableName="users">
+			<!-- 如果字段名和属性名不一致，在此处重载。column是DB字段 ，property是Model属性-->
+			<!-- <columnOverride column="user_name" property="name" /> -->
+		</table>
+	</context>
+</generatorConfiguration>
